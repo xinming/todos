@@ -11,13 +11,12 @@ General:
 - setup Icinga
 - better file consistency checker
 - automatic POST for RLCN
-- iHereTV resolution adjustment
-- rerecord videos again
-
+- iHereTV resolution adjustment @v @important
+- prepare iPhone content
 
 DTAC:
 - finish iPhone/Android design and send to DTAC @important
-
+- check if it is on WAP home page @important
 
 AIS:
 - Online REG implementation @important
@@ -25,8 +24,10 @@ AIS:
 
 
 TRUE:
-- email @important
+- Send email @important
 - delay timeline @important
+- get email for V @important
+- get technical contact from lily 
 
 New:
 - DTAC BB App

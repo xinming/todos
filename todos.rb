@@ -96,7 +96,7 @@ class Todo
   
   def print
     tags = (@tags != []) ? @tags.collect{|a| "@" + a }.join(" ").green : ""
-    puts "|#{("%-14s" % @project_list.capitalize).red}|#{("%-14s" % @project).blue}|#{@name}#{" " + tags if tags!= ""}#{" " + due_in.yellow_on_black if due_in}"
+    puts "|#{("%-16s" % @project_list.capitalize).red}|#{("%-14s" % @project).blue}|#{@name}#{" " + tags if tags!= ""}#{" " + due_in.yellow_on_black if due_in}"
   end
 end
 
