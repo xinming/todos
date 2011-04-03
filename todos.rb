@@ -1,5 +1,4 @@
 #! /usr/bin/ruby
-$VERBOSE = nil
 
 require 'rubygems'
 require "activesupport"
@@ -97,7 +96,7 @@ class Todo
   
   def print
     tags = (@tags != []) ? @tags.collect{|a| "@" + a }.join(" ").green : ""
-    puts "|#{("%-14s" % @project_list.capitalize).red}|#{("%-14s" %  @project).blue}|#{@name}#{" " + tags if tags!= ""}#{" " + due_in.yellow_on_black if due_in}"
+    puts "|#{("%-14s" % @project_list.capitalize).red}|#{("%-14s" % @project).blue}|#{@name}#{" " + tags if tags!= ""}#{" " + due_in.yellow_on_black if due_in}"
   end
 end
 
@@ -110,6 +109,7 @@ all_lists = init_content()
 command = ARGV[0]
 case command
 when "important"
+  puts "-important".upcase.blue
   all_lists.each do |project_list_name, projects|
     projects.each do |project_name, todos|
       todos.each do |todo|
@@ -120,6 +120,7 @@ when "important"
 when "commit"
   
 when "due"
+  puts "-due soon".upcase.blue
   all_lists.each do |project_list_name, projects|
     projects.each do |project_name, todos|
       todos.each do |todo|
@@ -128,4 +129,3 @@ when "due"
     end
   end
 end
-
