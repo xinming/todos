@@ -1,0 +1,28 @@
+General: 
+- redesign Blueprint homepage
+- show and order by channel #
+- live badge
+- live channels for BB
+- order by episode #
+- order highlights
+- channel + episode count
+- real screenshots
+- video hits monitor
+- setup Icinga
+- better file consistency checker
+- automatic POST for RLCN
+- iHereTV resolution adjustment
+- rerecord videos again
+
+
+DTAC:
+- finish iPhone design and send to DTAC @important
+
+
+AIS:
+- Online REG implementation @important
+- SMS for iPhone (instead of WAPPUSH)
+
+
+TRUE:
+- email @important
