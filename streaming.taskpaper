@@ -4,19 +4,19 @@ General:
 - live badge
 - live channels for BB
 - order by episode #
-- order highlights
+- order highlights @important @2011-04-10
 - channel + episode count
 - real screenshots
 - video hits monitor
 - setup Icinga
 - better file consistency checker
 - automatic POST for RLCN
-- iHereTV resolution adjustment @v @important
+- iHereTV resolution adjustment @v
 - prepare iPhone content
 
 DTAC:
 - finish iPhone/Android design and send to DTAC @important
-- check if it is on WAP home page @important
+- check if MEVO is on WAP home page @important
 
 AIS:
 - Online REG implementation @important
@@ -24,10 +24,10 @@ AIS:
 
 
 TRUE:
-- Send email @important
-- delay timeline @important
+- Send email @important @2011-04-04
+- delay timeline @important @2011-04-04
 - get email for V @important
-- get technical contact from lily 
+- get technical contact from lily
 
 New:
 - DTAC BB App

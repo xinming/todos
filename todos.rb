@@ -56,6 +56,10 @@ class Todo
     @tags = tags
   end
   
+  def is_done
+    return @tags.include? "done"
+  end
+  
   def self.init_text(todo_string)
     todo_string.strip!
     todo_string.gsub!(/^\- /, "")
@@ -113,7 +117,7 @@ when "important"
   all_lists.each do |project_list_name, projects|
     projects.each do |project_name, todos|
       todos.each do |todo|
-        todo.print if todo.is_important
+        todo.print if todo.is_important && !todo.is_done
       end
     end
   end
@@ -124,7 +128,7 @@ when "due"
   all_lists.each do |project_list_name, projects|
     projects.each do |project_name, todos|
       todos.each do |todo|
-        todo.print if todo.due_in
+        todo.print if todo.due_in && !todo.is_done
       end
     end
   end
