@@ -15,12 +15,12 @@ FILE_NAME[PROJECT_NAME][TASK_NAME]
 
 def init_content
   all_lists = Hash.new
-  project_lists = Dir.glob("*.taskpaper")
+  project_lists = Dir.glob(File.dirname(__FILE__) + "/*.taskpaper")
   project_lists.each do |project_list_name|
     
     # puts "\n\n--debug-- List: #{file_name}" if DEBUG
     lines = File.read(project_list_name).split /[\n]+/
-    project_list_name.gsub!(".taskpaper", "")
+    project_list_name = project_list_name.gsub(".taskpaper", "").gsub(/[^\/]*\//, "")
     all_lists[project_list_name] = Hash.new
     current_project_list = all_lists[project_list_name]  # CURRENT PROJECT LIST
     current_project = nil # CURRENT PROJECT
