@@ -3,9 +3,6 @@
 require 'rubygems'
 require "activesupport"
 require "colored"
-require "grit"
-include Grit
-
 
 DEBUG = false
 Time.zone = "Bangkok"
