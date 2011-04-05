@@ -1,0 +1,29 @@
+General:
+	- retina screen support
+	- wysiwyg editor for content
+	- css/html editor for ads
+	- mobile controller for all devices
+	- splash screen support
+	- cover editor - css support
+	- unpublish instead of delete
+	- delegate backend @mew @delegate
+	- Wallpaper push update > fix webview @important @bug
+
+
+Commercial:
+	- report website for MEI @important
+	- talk to Dom about redesign charge @important @dom @2011-04-04
+	- google analytics for iPhone web app + blackberry
+	- price breakdown for fashion week @important @lily
+	- banner from beauty section to watch section @important @2011-04-05 @done
+	- form reports for MEI @important
+	
+Monthly:
+	- fix wallpaper blackberry @2011-04-04 @important
+	- livingETC new banner @2011-04-04 @iphone @important @done
+	- Wallpaper new banner @2011-04-04 @iphone @important @done
+	- livingETC new banner @2011-04-04 @blackberry @important 
+	- Wallpaper new banner @2011-04-04 @blackberry @important 
+Android:
+	- android size
+	- android wallpaper API for Dome @important @2011-04-05 @delegate

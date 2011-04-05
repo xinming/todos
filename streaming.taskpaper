@@ -1,0 +1,37 @@
+General:
+	- redesign Blueprint homepage @important
+	- show and order by channel #
+	- live badge
+	- live channels for BB
+	- order by episode #
+	- order highlights @important @2011-04-10
+	- channel + episode count
+	- real screenshots
+	- video hits monitor
+	- setup icinga
+	- better file consistency checker
+	- automatic POST for RLCN @important
+	- iHereTV resolution adjustment @v @important
+	- prepare iPhone content
+	- iHereTV highlight channel #3 @2011-04-10
+
+DTAC:
+	- finish iPhone/Android design and send to DTAC @important @2011-04-05
+
+AIS:
+	- Online REG implementation @important
+	- SMS for iPhone (instead of WAPPUSH)
+	- Flow chart for Gary
+
+TRUE:
+New:
+	- DTAC BB App
+	- DTAC Android App
+	- 3G initiation
+Archive:
+	- check if MEVO is on WAP home page @important @done
+	- Send email @important @2011-04-04 @done
+	- delay timeline @important @2011-04-04 @done
+	- get email for V @important @done
+	- get technical contact from lily @done
+	
