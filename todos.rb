@@ -32,8 +32,8 @@ def init_content
         current_project_list[project_name] = Array.new
         current_project = current_project_list[project_name]
       end
-      if line.match /^\-\ .*/
-        todo = Todo.init_text(line)
+      if line.match /^\t\-\ .*/
+        todo = Todo.init_text(line.gsub(/^\t/, ""))
         # puts "\t--debug-- todo: " + todo.inspect if DEBUG
         todo.project = project_name
         todo.project_list = project_list_name
@@ -91,16 +91,16 @@ class Todo
   def due_in
     return nil if @due_date == nil
     days = (@due_date - CURRENT_TIME).to_i
-    return "Today" if days == 0
-    return "Tomorrow" if days == 1
-    return "Yesterday" if days == -1
-    return "Overdue #{-days} Days" if days < 0
-    return "In #{days} Days"
+    return "Today".blue_on_black  if days == 0
+    return "Tomorrow".yellow_on_black  if days == 1
+    return "Yesterday".red_on_black  if days == -1
+    return "Overdue #{-days} Days".red_on_black  if days < 0
+    return "In #{days} Days".yellow_on_black 
   end
   
   def print
     tags = (@tags != []) ? @tags.collect{|a| "@" + a }.join(" ").green : ""
-    puts "|#{("%-16s" % @project_list.capitalize).red}|#{("%-14s" % @project).blue}|#{@name}#{" " + tags if tags!= ""}#{" " + due_in.yellow_on_black if due_in}"
+    puts "|#{("%-16s" % @project_list.capitalize).red}|#{("%-14s" % @project).blue}|#{@name}#{" " + tags if tags!= ""}#{" " + due_in if due_in}"
   end
 end
 
