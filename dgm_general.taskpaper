@@ -12,6 +12,10 @@ Invoice:
 
 General:
 	- get mom's cabinet
-
+	
 Money:
-- remind mew for designgonemad.com invoice
+	- remind mew for designgonemad.com invoice
+	
+Technical:
+	- backup to S3 @important
+	- backup Ohho.in.th @important

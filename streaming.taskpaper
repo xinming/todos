@@ -1,5 +1,5 @@
 General:
-	- redesign Blueprint homepage @important
+	- redesign Blueprint homepage
 	- show and order by channel #
 	- live badge
 	- live channels for BB
@@ -14,9 +14,12 @@ General:
 	- iHereTV resolution adjustment @v @important
 	- prepare iPhone content
 	- iHereTV highlight channel #3 @2011-04-10
+	-
 
 DTAC:
 	- finish iPhone/Android design and send to DTAC @important @2011-04-05
+	- iOS: skip channel_list page for rlcn @ake @delegate
+	- BB issue @important @bug
 
 AIS:
 	- Online REG implementation @important
