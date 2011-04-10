@@ -83,19 +83,19 @@ def all_todos(the_list = nil)
     project_lists = Dir.glob(File.dirname(__FILE__) + "/*.taskpaper")
   end
   project_lists.each do |project_list_name|
-    lines = File.read(project_list_name).split /[\n]+/
+    lines = File.read(project_list_name).split(/[\n]+/)
     project_list_name = project_list_name.gsub(".taskpaper", "").gsub(/[^\/]*\//, "")
     all_lists[project_list_name] = Hash.new
     current_project_list = all_lists[project_list_name]
     current_project = nil
     project_name = nil
     lines.each do |line|
-      if line.match /^[^\@\:]+\:[\ ]*$/
+      if line.match(/^[^\@\:]+\:[\ ]*$/)
         project_name = line.gsub(":", "").strip
         current_project_list[project_name] = Array.new
         current_project = current_project_list[project_name]
       end
-      if line.match /^\t\-\ .*/
+      if line.match(/^\t\-\ .*/)
         todo = Todo.init_text(line.gsub(/^\t/, ""))
         todo.project = project_name
         todo.project_list = project_list_name
@@ -122,6 +122,9 @@ def loop_todos(todos_tree, do_print=false)
   return results if !do_print
 end
 
+
+
+
 # ----------MAIN------------#
 
 command = ARGV[0]
@@ -143,16 +146,17 @@ when "all"
   end
 when "edit"
   `mate #{File.dirname(__FILE__)}`
-when 'lists'
-  puts "-all lists".upcase.blue
-  project_lists = Dir.glob(File.dirname(__FILE__) + "/*.taskpaper").collect!{|filename| filename.gsub(/[^\/]*\//, "").gsub(".taskpaper","")}
-  puts project_lists
 when 'list'
   the_list = ARGV[1]
-  abort "No list name given" if !the_list
-  puts "-#{the_list}".upcase.blue
-  loop_todos(all_todos(the_list), true) do |todo|
-    !todo.is_done
+  if !the_list
+    puts "-all lists".upcase.blue
+    project_lists = Dir.glob(File.dirname(__FILE__) + "/*.taskpaper").collect!{|filename| filename.gsub(/[^\/]*\//, "").gsub(".taskpaper","")}
+    puts project_lists
+  else
+    puts "-#{the_list}".upcase.blue
+    loop_todos(all_todos(the_list), true) do |todo|
+      !todo.is_done
+    end
   end
 when 'open'
   the_list = ARGV[1]

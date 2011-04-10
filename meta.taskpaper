@@ -1,5 +1,8 @@
-meta:
-	- grit
-	- web server
+minor features:
 	- tree
 	- order by due date
+main features:
+	- tree 
+	- add remove done
+	- grit
+	- open project instead of the list
