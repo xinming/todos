@@ -8,44 +8,6 @@ DEBUG = false
 Time.zone = "Bangkok"
 CURRENT_TIME = DateTime.now.beginning_of_day
 
-=begin
-DATA structure: 
-FILE_NAME[PROJECT_NAME][TASK_NAME]
-=end
-
-def init_content
-  all_lists = Hash.new
-  project_lists = Dir.glob(File.dirname(__FILE__) + "/*.taskpaper")
-  project_lists.each do |project_list_name|
-    
-    # puts "\n\n--debug-- List: #{file_name}" if DEBUG
-    lines = File.read(project_list_name).split /[\n]+/
-    project_list_name = project_list_name.gsub(".taskpaper", "").gsub(/[^\/]*\//, "")
-    all_lists[project_list_name] = Hash.new
-    current_project_list = all_lists[project_list_name]  # CURRENT PROJECT LIST
-    current_project = nil # CURRENT PROJECT
-    project_name = nil
-    lines.each do |line|
-      if line.match /^[^\@\:]+\:[\ ]*$/
-        project_name = line.gsub(":", "").strip
-        # puts "--debug-- project: " + project_name if DEBUG
-        current_project_list[project_name] = Array.new
-        current_project = current_project_list[project_name]
-      end
-      if line.match /^\t\-\ .*/
-        todo = Todo.init_text(line.gsub(/^\t/, ""))
-        # puts "\t--debug-- todo: " + todo.inspect if DEBUG
-        todo.project = project_name
-        todo.project_list = project_list_name
-        current_project.push todo
-      end
-    end
-  end
-
-  return all_lists
-end
-
-
 class Todo
   attr_accessor :name, :due_date, :is_important, :tags, :plain_text, :project, :project_list
 
@@ -100,38 +62,114 @@ class Todo
   
   def print
     tags = (@tags != []) ? @tags.collect{|a| "@" + a }.join(" ").green : ""
-    puts "|#{("%-16s" % @project_list.capitalize).red}|#{("%-14s" % @project).blue}|#{@name}#{" " + tags if tags!= ""}#{" " + due_in if due_in}"
+    puts "|#{("%-16s" % @project_list).red}|#{("%-14s" % @project).blue}|#{@name}#{" " + tags if tags!= ""}#{" " + due_in if due_in}"
   end
 end
 
-def print_todos_tree(project_lists)
-  
+
+# ----------UTILITIES---------#
+
+def all_todos(the_list = nil)
+  all_lists = Hash.new
+  project_lists = []
+  if the_list
+    the_list_path = File.dirname(__FILE__) + "/#{the_list}.taskpaper"
+    if File.exist? the_list_path
+      project_lists = [the_list_path]
+    else
+      abort "File #{the_list_path} not found"
+    end
+  else
+    project_lists = Dir.glob(File.dirname(__FILE__) + "/*.taskpaper")
+  end
+  project_lists.each do |project_list_name|
+    lines = File.read(project_list_name).split /[\n]+/
+    project_list_name = project_list_name.gsub(".taskpaper", "").gsub(/[^\/]*\//, "")
+    all_lists[project_list_name] = Hash.new
+    current_project_list = all_lists[project_list_name]
+    current_project = nil
+    project_name = nil
+    lines.each do |line|
+      if line.match /^[^\@\:]+\:[\ ]*$/
+        project_name = line.gsub(":", "").strip
+        current_project_list[project_name] = Array.new
+        current_project = current_project_list[project_name]
+      end
+      if line.match /^\t\-\ .*/
+        todo = Todo.init_text(line.gsub(/^\t/, ""))
+        todo.project = project_name
+        todo.project_list = project_list_name
+        current_project.push todo
+      end
+    end
+  end
+  return all_lists
 end
 
-# MAIN
-all_lists = init_content()
+def loop_todos(todos_tree, do_print=false)
+  results = [] if !do_print
+  todos_tree.each do |project_list_name, projects|
+    projects.each do |project_name, todos|
+      todos.each do |todo|
+        if do_print
+          todo.print if yield(todo)
+        else
+          results.push(todo) if yield(todo)
+        end
+      end
+    end
+  end
+  return results if !do_print
+end
+
+# ----------MAIN------------#
+
 command = ARGV[0]
 case command
 when "important"
   puts "-important".upcase.blue
-  all_lists.each do |project_list_name, projects|
-    projects.each do |project_name, todos|
-      todos.each do |todo|
-        todo.print if todo.is_important && !todo.is_done
-      end
-    end
+  loop_todos(all_todos, true) do |todo|
+    todo.is_important && !todo.is_done
   end
 when "commit"
-  
 when "due"
-  puts "-due soon".upcase.blue
-  all_lists.each do |project_list_name, projects|
-    projects.each do |project_name, todos|
-      todos.each do |todo|
-        todo.print if todo.due_in && !todo.is_done
-      end
-    end
+  puts "-due".upcase.blue
+  loop_todos(all_todos, true) do |todo|
+    todo.due_in && !todo.is_done
+  end
+when "all"
+  loop_todos(all_todos, true) do |todo|
+    !todo.is_done
   end
 when "edit"
   `mate #{File.dirname(__FILE__)}`
+when 'lists'
+  puts "-all lists".upcase.blue
+  project_lists = Dir.glob(File.dirname(__FILE__) + "/*.taskpaper").collect!{|filename| filename.gsub(/[^\/]*\//, "").gsub(".taskpaper","")}
+  puts project_lists
+when 'list'
+  the_list = ARGV[1]
+  abort "No list name given" if !the_list
+  puts "-#{the_list}".upcase.blue
+  loop_todos(all_todos(the_list), true) do |todo|
+    !todo.is_done
+  end
+when 'open'
+  the_list = ARGV[1]
+  abort "No list name given" if !the_list
+  the_list_path = File.dirname(__FILE__) + "/#{the_list}.taskpaper"
+  `open -a "Taskpaper.app" #{the_list_path}`
+when 'tags'
+  puts "-tags".upcase.blue
+  puts loop_todos(all_todos){|todo| todo.tags != [] && !todo.is_done}.collect{|todo| todo.tags}.flatten.uniq.collect{|todo| "@#{todo}"}
+when 'tag'
+  the_tag = ARGV[1]
+  abort "No tag name given" if !the_tag
+  loop_todos(all_todos, true) do |todo|
+    todo.tags.include?(the_tag) && !todo.is_done
+  end
+when 'done'
+  loop_todos(all_todos, true) do |todo|
+    todo.is_done
+  end
 end

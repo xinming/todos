@@ -1,6 +1,9 @@
 Outsource:
-	- write detailed project requirements @poom
-	- check if mysocialmotion money is here @v @2011-04-04
-	- server requirements @important @2011-04-06
+	- setup test details @poom
+	- DNS details 
+	
 Archive:
+	- setup server requirements @important @2011-04-06 @done @project(Outsource)
+	- facebook integration details @poom @2011-04-08 @done @project(Outsource)
+	- check if mysocialmotion money is here @v @2011-04-04 @done @project(Outsource)
 	- pay @important @2011-04-04 @done

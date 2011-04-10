@@ -10,16 +10,15 @@ General:
 	- video hits monitor
 	- setup icinga
 	- better file consistency checker
-	- automatic POST for RLCN @important
-	- iHereTV resolution adjustment @v @important
+	- automatic POST for RLCN @v
+	- iHereTV resolution integration @important
 	- prepare iPhone content
 	- iHereTV highlight channel #3 @2011-04-10
-	-
 
 DTAC:
-	- finish iPhone/Android design and send to DTAC @important @2011-04-05
 	- iOS: skip channel_list page for rlcn @ake @delegate
-	- BB issue @important @bug
+	- BB issue @important @bug @lily
+	- turn off wifi notice & form for bug reports
 
 AIS:
 	- Online REG implementation @important
@@ -31,7 +30,9 @@ New:
 	- DTAC BB App
 	- DTAC Android App
 	- 3G initiation
+	
 Archive:
+	- finish iPhone/Android design and send to DTAC @important @2011-04-05 @done @project(DTAC)
 	- check if MEVO is on WAP home page @important @done
 	- Send email @important @2011-04-04 @done
 	- delay timeline @important @2011-04-04 @done

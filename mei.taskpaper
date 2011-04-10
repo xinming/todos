@@ -5,25 +5,27 @@ General:
 	- mobile controller for all devices
 	- splash screen support
 	- cover editor - css support
-	- unpublish instead of delete
+	- unpublished instead of delete
 	- delegate backend @mew @delegate
-	- Wallpaper push update > fix webview @important @bug
-	- Bazaar push update > fix category @important @2011-04-06
-
+	- Wallpaper push app store update > fix webview @important @bug
 Commercial:
 	- report website for MEI @important
-	- talk to Dom about redesign charge @important @dom @2011-04-04 @done
 	- google analytics for iPhone web app + blackberry
-	- price breakdown for fashion week @important @lily @done
-	- banner from beauty section to watch section @important @2011-04-05 @done
-	- form reports for MEI @important
+	- form reports for MEI @important @2011-04-07
 	
 Monthly:
 	- fix wallpaper blackberry @2011-04-04 @important
-	- livingETC new banner @2011-04-04 @iphone @important @done
-	- Wallpaper new banner @2011-04-04 @iphone @important @done
 	- livingETC new banner @2011-04-04 @blackberry @important 
 	- Wallpaper new banner @2011-04-04 @blackberry @important 
+	- cancel web app
+	
 Android:
 	- android size
 	- android wallpaper API for Dome @important @2011-04-05 @delegate
+Archive:
+	- Bazaar push app store update > fix category @important @2011-04-07 @done @project(General)
+	- talk to Dom about redesign charge @important @dom @2011-04-04 @done @project(Commercial)
+	- price breakdown for fashion week @important @lily @done @project(Commercial)
+	- banner from beauty section to watch section @important @2011-04-05 @done @project(Commercial)
+	- livingETC new banner @2011-04-04 @iphone @important @done @project(Monthly)
+	- Wallpaper new banner @2011-04-04 @iphone @important @done @project(Monthly)
