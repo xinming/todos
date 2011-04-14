@@ -8,30 +8,29 @@ General:
 	- channel + episode count
 	- real screenshots
 	- video hits monitor
-	- setup icinga
-	- better file consistency checker
-	- automatic POST for RLCN @v
-	- iHereTV resolution integration @important
+	- setup icinga / others
+	- better file consistency checker @important 
 	- prepare iPhone content
 	- iHereTV highlight channel #3 @2011-04-10
+	- check if live channels are live @important
 
 DTAC:
-	- iOS: skip channel_list page for rlcn @ake @delegate
+	- iOS: skip channel_list page for rlcn @ake
 	- BB issue @important @bug @lily
 	- turn off wifi notice & form for bug reports
-
+	- API to change the video for Android @2011-04-11 @important
+	- DTAC Android App
 AIS:
 	- Online REG implementation @important
 	- SMS for iPhone (instead of WAPPUSH)
 	- Flow chart for Gary
-
 TRUE:
 New:
 	- DTAC BB App
-	- DTAC Android App
 	- 3G initiation
-	
 Archive:
+	- iHereTV resolution integration @important @done @project(General)
+	- automatic POST for RLCN @v @done @project(General)
 	- finish iPhone/Android design and send to DTAC @important @2011-04-05 @done @project(DTAC)
 	- check if MEVO is on WAP home page @important @done
 	- Send email @important @2011-04-04 @done

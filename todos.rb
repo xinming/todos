@@ -1,7 +1,8 @@
 #! /usr/bin/ruby
 
 require 'rubygems'
-require "activesupport"
+require 'active_support/core_ext'
+require "active_support/time_with_zone"
 require "colored"
 
 DEBUG = false
