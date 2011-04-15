@@ -9,14 +9,14 @@ General:
 	- real screenshots
 	- video hits monitor
 	- setup icinga / others
-	- better file consistency checker @important 
+	- better file consistency checker @important  @done
 	- prepare iPhone content
 	- iHereTV highlight channel #3 @2011-04-10
 	- check if live channels are live @important
 
 DTAC:
 	- iOS: skip channel_list page for rlcn @ake
-	- BB issue @important @bug @lily
+	- BB issue @important @bug @lily @done
 	- turn off wifi notice & form for bug reports
 	- API to change the video for Android @2011-04-11 @important
 	- DTAC Android App
