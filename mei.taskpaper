@@ -8,6 +8,9 @@ General:
 	- unpublished instead of delete
 	- delegate backend @mew @delegate
 	- Wallpaper push app store update > fix webview @important @bug
+	- fix Bazaar @important @done
+	- update Bazaar @important @done
+	- add form validation
 Commercial:
 	- report website for MEI @important
 	- google analytics for iPhone web app + blackberry
