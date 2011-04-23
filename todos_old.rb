@@ -1,7 +1,6 @@
 #! /usr/bin/ruby
 
 require 'rubygems'
-require 'readline'
 require 'active_support/core_ext'
 require "active_support/time_with_zone"
 require "colored"
@@ -64,22 +63,12 @@ class Todo
   
   def print
     tags = (@tags != []) ? @tags.collect{|a| "@" + a }.join(" ").green : ""
-    todo_str = @name
-    if self.is_important
-      todo_str = todo_str.red
-    elsif self.tags.include? "maybe"
-      todo_str = todo_str.black
-    end
-    puts "|#{("%-16s" % @project_list).red}|#{("%-14s" % @project).blue}|#{todo_str}#{" " + tags if tags!= ""}#{" " + due_in if due_in}"
+    puts "|#{("%-16s" % @project_list).red}|#{("%-14s" % @project).blue}|#{@name}#{" " + tags if tags!= ""}#{" " + due_in if due_in}"
   end
 end
 
 
 # ----------UTILITIES---------#
-
-def project_lists
-  Dir.glob(File.dirname(__FILE__) + "/*.taskpaper").collect!{|filename| filename.gsub(/[^\/]*\//, "").gsub(".taskpaper","")}
-end
 
 def all_todos(the_list = nil)
   all_lists = Hash.new
@@ -135,70 +124,57 @@ def loop_todos(todos_tree, do_print=false)
 end
 
 
-COMMANDS = (['important', 'list', 'tags', 'tag', 'open', 'edit', 'done', 'due', 'all', 'clear']) #+ project_lists).sort
 
-Readline.completion_append_character = " "
-
-comp = proc do |s|
-  return COMMANDS.grep(/^#{Regexp.escape(s)}/)
-end
-
-Readline.completion_proc = comp
 
 # ----------MAIN------------#
-while line = Readline.readline('todos> '.green, true)
-  command = line
-  case command
-  when "important"
-    puts "-important".upcase.blue
-    loop_todos(all_todos, true) do |todo|
-      todo.is_important && !todo.is_done
+
+command = ARGV[0]
+case command
+when "important"
+  puts "-important".upcase.blue
+  loop_todos(all_todos, true) do |todo|
+    todo.is_important && !todo.is_done
+  end
+when "commit"
+when "due"
+  puts "-due".upcase.blue
+  loop_todos(all_todos, true) do |todo|
+    todo.due_in && !todo.is_done
+  end
+when "all"
+  loop_todos(all_todos, true) do |todo|
+    !todo.is_done && !todo.tags.include?("maybe")
+  end
+when "edit"
+  `mate #{File.dirname(__FILE__)}`
+when 'list'
+  the_list = ARGV[1]
+  if !the_list
+    puts "-all lists".upcase.blue
+    project_lists = Dir.glob(File.dirname(__FILE__) + "/*.taskpaper").collect!{|filename| filename.gsub(/[^\/]*\//, "").gsub(".taskpaper","")}
+    puts project_lists
+  else
+    puts "-#{the_list}".upcase.blue
+    loop_todos(all_todos(the_list), true) do |todo|
+      !todo.is_done
     end
-  when "commit"
-  when "due"
-    puts "-due".upcase.blue
-    loop_todos(all_todos, true) do |todo|
-      todo.due_in && !todo.is_done
-    end
-  when "all"
-    loop_todos(all_todos, true) do |todo|
-      !todo.is_done && !todo.tags.include?("maybe")
-    end
-  when "edit"
-    `mate #{File.dirname(__FILE__)}`
-  when /^list.*/
-    the_list = line.split(/[\ ]+/)[1]
-    if !the_list
-      puts "-all lists".upcase.blue
-      puts project_lists
-    else
-      puts "-#{the_list}".upcase.blue
-      loop_todos(all_todos(the_list), true) do |todo|
-        !todo.is_done
-      end
-    end
-  when /^open\ .*/
-    the_list = line.split(/[\ ]+/).last
-    abort "No list name given" if !the_list
-    the_list_path = File.dirname(__FILE__) + "/#{the_list}.taskpaper"
-    `open -a "Taskpaper.app" #{the_list_path}`
-  when 'tags'
-    puts "-tags".upcase.blue
-    puts loop_todos(all_todos){|todo| todo.tags != [] && !todo.is_done}.collect{|todo| todo.tags}.flatten.uniq.collect{|todo| "@#{todo}"}
-  when /^tag\ .*/
-    the_tag = line.split(/[\ ]+/).last
-    abort "No tag name given" if !the_tag
-    loop_todos(all_todos, true) do |todo|
-      todo.tags.include?(the_tag) && !todo.is_done
-    end
-  when 'done'
-    loop_todos(all_todos, true) do |todo|
-      todo.is_done
-    end
-  when 'help'
-    puts "-help".upcase.blue
-    puts COMMANDS
-  when 'clear'
-    print "\e[H\e[2J"
+  end
+when 'open'
+  the_list = ARGV[1]
+  abort "No list name given" if !the_list
+  the_list_path = File.dirname(__FILE__) + "/#{the_list}.taskpaper"
+  `open -a "Taskpaper.app" #{the_list_path}`
+when 'tags'
+  puts "-tags".upcase.blue
+  puts loop_todos(all_todos){|todo| todo.tags != [] && !todo.is_done}.collect{|todo| todo.tags}.flatten.uniq.collect{|todo| "@#{todo}"}
+when 'tag'
+  the_tag = ARGV[1]
+  abort "No tag name given" if !the_tag
+  loop_todos(all_todos, true) do |todo|
+    todo.tags.include?(the_tag) && !todo.is_done
+  end
+when 'done'
+  loop_todos(all_todos, true) do |todo|
+    todo.is_done
   end
 end

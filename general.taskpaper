@@ -10,7 +10,7 @@ Technical:
 	- restore stream3 international bandwidth
 	- finish all monit setups @important
 Productivity:
-	- rvmrc cheatsheet 
+	- rvmrc cheatsheet
 	- bundler cheatsheet
 	- textmate cheatsheet @done
 	- vim cheatsheet
@@ -19,7 +19,7 @@ Archive:
 	- Taxi 120 @done @project(Invoice)
 	- Western Union @done @project(Invoice)
 	- remind mew for designgonemad.com invoice @done @project(Money)
-	- backup peter @important  @done @project(Technical)
+	- backup peter @important  @done @pr\']ject(Technical)
 	- git @done @project(Productivity)
 	- ruby metaprogramming  @done @project(Productivity)
 	- reseller club @done @project(Invoice)

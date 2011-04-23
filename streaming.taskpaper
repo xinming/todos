@@ -1,35 +1,46 @@
-General:
-	- redesign Blueprint homepage
-	- show and order by channel #
-	- live badge
-	- live channels for BB
-	- order by episode #
-	- order highlights @important @2011-04-10
+Backend:
 	- channel + episode count
-	- real screenshots
+	- use workling instead of background crons 
+	- refactor scripts into utils folder
+	- check if live channels are live @important @v
+Frontend:
+	- redesign Blueprint homepage @maybe
+	- integrate backend + frontend
+	- image resizing & caching
+	- show and order by channel #
+	- order by episode #
+	- order highlights
 	- video hits monitor
-	- setup icinga / others
-	- better file consistency checker @important  @done
-	- prepare iPhone content
-	- iHereTV highlight channel #3 @2011-04-10
-	- check if live channels are live @important
-	- api implementation
+	- iHereTV highlight channel #3
+	- replace Blueprint with own templates
+	- live channels for BB
+	- live badge
+Content:
+	- prepare iPhone + 3G content
+	- prepare to do old content again @important @lily
+	- real screenshots for old content @important @v
 DTAC:
-	- iOS: skip channel_list page for rlcn @ake
-	- BB issue @important @bug @lily @done
-	- turn off wifi notice & form for bug reports
-	- API to change the video for Android @2011-04-11 @important @done
-	- DTAC Android App
+	- iOS: skip channel_list page for rlcn @ake @api
+	- banner for WAP Channel @poom
+	- turn off wifi notice
+	- form for bug reports
+	- DTAC Android App @dome
+	- nationTV videos @2011-04-24 @important
 AIS:
 	- Online REG implementation @important
 	- SMS for iPhone (instead of WAPPUSH)
 	- Flow chart for Gary
 TRUE:
-	- integration test @important
 New:
 	- DTAC BB App
 	- 3G initiation
 Archive:
+	- setup icinga / others @done @project(Backend)
+	- better file consistency checker @important  @done @project(Backend)
+	- api implementation @done @project(Backend)
+	- BB issue @important @bug @lily @done @project(DTAC)
+	- API to change the video for Android @2011-04-11 @important @done @project(DTAC)
+	- integration test @important @done
 	- iHereTV resolution integration @important @done @project(General)
 	- automatic POST for RLCN @v @done @project(General)
 	- finish iPhone/Android design and send to DTAC @important @2011-04-05 @done @project(DTAC)

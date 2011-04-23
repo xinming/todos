@@ -1,30 +1,35 @@
 General:
-	- retina screen support
-	- wysiwyg editor for content
-	- css/html editor for ads
-	- mobile controller for all devices
 	- splash screen support
-	- cover editor - css support
-	- unpublished instead of delete
 	- delegate backend @mew @delegate
 	- Wallpaper push app store update > fix webview @important @bug
-	- fix Bazaar @important @done
-	- update Bazaar @important @done
-	- add form validation
-Commercial:
-	- report website for MEI @important
-	- google analytics for iPhone web app + blackberry
-	- form reports for MEI @important @2011-04-07
-	
+	- add form validation backend
 Monthly:
-	- fix wallpaper blackberry @2011-04-04
-	- livingETC new banner @2011-04-04 @blackberry
-	- Wallpaper new banner @2011-04-04 @blackberry
+	- livingETC new banner
+	- Wallpaper new banner
 	- cancel web app
 Android:
-	- android size
-	- android wallpaper API for Dome @important @2011-04-05 @delegate
+	- android size @bug
+	- android wallpaper API for Dome
+Emergency:
+	- wallpaper fix blackberry @important
+	- google analytics reports @important
+	- get wallpaper website from Poom @delegate 
+	- downloads reports for MEI @important
+	- advertising reports for MEI @important
+	- Living + Wallpaper nokia app
+	- LivingETC cover @important @done
+	- Change bazaar banner name
+Maybe:
+	- retina screen support @maybe
+	- wysiwyg editor for content @maybe
+	- css/html editor for ads @maybe
+	- mobile controller for all devices @maybe
+	- unpublished instead of delete @maybe
+	- cover editor - css support @maybe
 Archive:
+	- get livingetc the web sites online @done @project(Emergency)
+	- fix Bazaar @important @done @project(General)
+	- update Bazaar @important @done @project(General)
 	- Bazaar push app store update > fix category @important @2011-04-07 @done @project(General)
 	- talk to Dom about redesign charge @important @dom @2011-04-04 @done @project(Commercial)
 	- price breakdown for fashion week @important @lily @done @project(Commercial)
