@@ -8,7 +8,7 @@ Money:
 Technical:
 	- backup to S3 @important @done
 	- restore stream3 international bandwidth
-	- finish all monit setups @important
+	- finish all monit setups
 Productivity:
 	- rvmrc cheatsheet
 	- bundler cheatsheet

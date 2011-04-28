@@ -4,9 +4,10 @@ General:
 	- Wallpaper push app store update > fix webview @important @bug
 	- add form validation backend
 Monthly:
-	- livingETC new banner
+	- livingETC new banner @done
 	- Wallpaper new banner
-	- cancel web app
+	- Bazaar new cover
+	- cancel web app @done
 Android:
 	- android size @bug
 	- android wallpaper API for Dome

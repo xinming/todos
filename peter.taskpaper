@@ -1,3 +1,4 @@
 FrontEnd:
-	- create measurement + name + choose existing measurements
-	- 
+	- create measurement + name + choose existing measurements @important
+	- script to import all pictures
+	- price for summary

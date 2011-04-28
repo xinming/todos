@@ -2,7 +2,7 @@ Backend:
 	- channel + episode count
 	- use workling instead of background crons 
 	- refactor scripts into utils folder
-	- check if live channels are live @important @v
+	- check if live channels are live @v
 Frontend:
 	- redesign Blueprint homepage @maybe
 	- integrate backend + frontend
@@ -17,8 +17,8 @@ Frontend:
 	- live badge
 Content:
 	- prepare iPhone + 3G content
-	- prepare to do old content again @important @lily
-	- real screenshots for old content @important @v
+	- prepare to do old content again @lily
+	- real screenshots for old content @v
 DTAC:
 	- iOS: skip channel_list page for rlcn @ake @api
 	- banner for WAP Channel @poom
